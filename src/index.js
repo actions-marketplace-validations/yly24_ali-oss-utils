@@ -28,7 +28,7 @@ const fg = require('fast-glob');
       }
       // upload dir
       if (stat.isDirectory()) {
-        const files = fg.sync(`${assetPath}/**`, { dot: false, onlyFiles: true })
+        const files = fg.sync(`${assetPath}/**`, { dot: false, onlyFiles: false })
         const res = await Promise.all(
           files.map(file => {
             const filename = file.replace(`${assetPath}/`, '')
