@@ -14,15 +14,15 @@ async function upload() {
       bucket: core.getInput('bucket')
     })
 
-    const assetPath = core.getInput('source', { required: true }).replace(/\/+$/g, '')
+    const sourcePath = core.getInput('source', { required: true }).replace(/\/+$/g, '')
     const targetPath = core.getInput('target', { required: false }).replace(/\/+$/g, '')
-    const paths = getFilePaths(assetPath)
+    const paths = getFilePaths(sourcePath)
 
     for (const fileName of paths) {
-      const objectName = getObjectName(fileName, targetPath)
+      const objectName = getObjectName(fileName, sourcePath ,targetPath)
       const { res, url } = await oss.put(objectName, fileName)
       const { statusCode, statusMessage } = res
-      statusCode === 200 ? core.info(`${url}, ${statusMessage}`) : core.error(`${url}, ${statusMessage}`)
+      statusCode === 200 ? core.info(`${objectName}, ${statusMessage}`) : core.error(`${objectName}, ${statusMessage}`)
     }
   } catch (error) {
     core.setFailed(error.message)
@@ -47,7 +47,8 @@ function getFilePaths(dir) {
   return paths
 }
 
-const getObjectName = (fileName, targetPath) => {
-  const filePath = fileName.split('build')[1]
+function getObjectName(fileName, sourcePath, targetPath) {
+  const filePath = fileName.split(sourcePath)[1]
+
   return `${targetPath || ''}${filePath}`
 }
