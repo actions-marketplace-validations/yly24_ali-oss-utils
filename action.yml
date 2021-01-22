@@ -1,5 +1,5 @@
 
-name: 'Ali oss utils'
+name: 'Upload file to Ali oss'
 description: 'Upload assets to aliyun OSS'
 branding:
   icon: 'upload-cloud'
@@ -7,19 +7,19 @@ branding:
 inputs:
   region:
     required: true
-  key-id:
+  access-key-id:
     required: true
-  key-secret:
+  access-key-secret:
     required: true
   bucket:
     required: true
-  asset-path:
+  source:
     required: true
-  target-path:
+  target:
     required: true
 outputs:
   url:
     description: oss url
 runs:
   using: 'node12'
-  main: 'lib/index.js'
+  main: 'src/index.js'

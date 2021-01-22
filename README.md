@@ -5,12 +5,12 @@
 
 ## Inputs
 
-- `key-id`: OSS AccessKeyId
-- `key-secret`: OSS AccessKeySecret
+- `access-key-id`: OSS AccessKeyId
+- `access-key-secret`: OSS AccessKeySecret
 - `region`: 区域，如 `oss-cn-shenzhen`
 - `bucket`:
-- `asset-path`: 本地资源路径
-- `target-path`: OSS 对象存储路径
+- `source`: 本地资源路径
+- `target`: OSS 对象存储路径
 
 ## Outputs
 
@@ -21,12 +21,12 @@
 ```yaml
 - name: Upload to oss
   id: upload_to_oss
-  uses: tvrcgo/upload-to-oss@v0.1.1
+  uses: yinlinyang/ali-oss-utils@1.0.1
   with:
-    key-id: ${{ secrets.OSS_KEY_ID }}
-    key-secret: ${{ secrets.OSS_KEY_SECRET }}
+    access-key-id: ${{ secrets.OSS_KEY_ID }}
+    access-key-secret: ${{ secrets.OSS_KEY_SECRET }}
     region: oss-cn-shenzhen
-    bucket: tvrcgo
-    asset-path: ./
-    target-path: /github-actions/pika-boilerplate/
+    bucket: project
+    source: /
+    target: /
 ```
