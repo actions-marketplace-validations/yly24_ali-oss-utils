@@ -1,6 +1,7 @@
 const core = require('@actions/core')
 const OSS = require('ali-oss')
 const fs = require('fs')
+const path = require('path')
 
 upload()
 
