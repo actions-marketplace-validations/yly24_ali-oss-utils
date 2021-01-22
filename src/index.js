@@ -24,7 +24,7 @@ async function upload() {
       statusCode === 200 ? core.info(`${url}, ${statusMessage}`) : core.error(`${url}, ${statusMessage}`)
     }
   } catch (error) {
-    core.setFailed(err.message)
+    core.setFailed(error.message)
   }
 }
 
