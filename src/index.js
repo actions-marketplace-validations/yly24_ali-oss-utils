@@ -14,7 +14,7 @@ async function upload() {
     })
 
     const assetPath = core.getInput('source', { required: true }).replace(/\/+$/g, '')
-    const targetPath = core.getInput('target', { required: true }).replace(/\/+$/g, '')
+    const targetPath = core.getInput('target', { required: false }).replace(/\/+$/g, '')
     const paths = getFilePaths(assetPath)
 
     for (const fileName of paths) {
