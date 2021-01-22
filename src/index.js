@@ -48,5 +48,5 @@ function getFilePaths(dir) {
 
 const getObjectName = (fileName, targetPath) => {
   const filePath = fileName.split('build')[1]
-  return `${targetPath}${filePath}`
+  return `${targetPath || ''}${filePath}`
 }

@@ -16,7 +16,7 @@ inputs:
   source:
     required: true
   target:
-    required: true
+    required: false
 outputs:
   url:
     description: oss url

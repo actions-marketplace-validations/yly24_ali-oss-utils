@@ -7,13 +7,11 @@
     "build": "ncc build src/index.js -m -o lib"
   },
   "keywords": [],
-  "author": "tvrcgo",
-  "license": "ISC",
+  "author": "yqin",
+  "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.3",
-    "@actions/github": "^2.1.1",
+    "@actions/core": "^1.2.6",
     "@vercel/ncc": "^0.25.1",
-    "ali-oss": "^6.6.0",
-    "fast-glob": "^3.2.4"
+    "ali-oss": "^6.6.0"
   }
 }
